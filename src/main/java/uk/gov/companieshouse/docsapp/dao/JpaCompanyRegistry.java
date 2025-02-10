@@ -56,6 +56,7 @@ public class JpaCompanyRegistry implements CompanyRegistry {
                 if (!companyClass.isAssignableFrom(Company.class)) keep = false;
             }
             return keep;
+
         }).collect(Collectors.toCollection(ArrayList::new));
     }
 
