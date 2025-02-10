@@ -39,6 +39,8 @@ public class JpaCompanyRegistry implements CompanyRegistry {
         Pageable secondPageWithFiveElements = PageRequest.of(1, 5);
 
         Page <Company> companies = repo.findAll(firstPageWithTwoElements);
+        System.out.println(companies.getTotalElements() +  "THIS IS THE TOTAL NUMBER OF ELEMENTS");
+        System.out.println(companies.getTotalPages() + "THIS  is THE TOTAL NUMBER OF PAGES ");
         return companies.stream().filter(company -> {
             boolean keep = true;
             if (namePattern != null && !company.getCompanyName().matches(namePattern)) keep = false;
